@@ -43,7 +43,8 @@ public class SecurityConfig  {
                 .authorizeHttpRequests((authorize) -> {
                     authorize.requestMatchers("/users/login/**").permitAll();
                     authorize.requestMatchers("/users/register/**").permitAll();
-                    authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
+                    authorize.requestMatchers("/users/register").permitAll();
+                   authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
                     authorize.anyRequest().authenticated();
                 }).httpBasic(Customizer.withDefaults());
 

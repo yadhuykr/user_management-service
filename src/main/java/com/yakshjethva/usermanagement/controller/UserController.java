@@ -31,6 +31,7 @@ public class UserController {
 
 	@PostMapping("/register")
 	public ResponseEntity<User> registerUser(@RequestBody UserRegistrationDto registrationDto) {
+		System.out.println("Inside login");
 		User user = userService.registerUser(
 				registrationDto.getUsername(),
 				registrationDto.getPassword(),
@@ -39,6 +40,7 @@ public class UserController {
 				registrationDto.getAddress(),
 				registrationDto.getRole()
 		);
+
 		return ResponseEntity.ok(user);
 	}
 
